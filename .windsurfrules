@@ -1,0 +1,22 @@
+1. Use Next.js, Tailwind CSS, and Magic-UI as the primary stack for development.
+2. Follow the design palette:
+   - Dark Gray: #10141A
+   - Light Gray: #E4E4E4
+   - Neutral Gray: #E6E6E6, #F5F5F5
+   - White: #FFFFFF
+3. Maintain a minimal and luxurious aesthetic inspired by Apple's design principles, with clean layouts and ample whitespace.
+4. Apply smooth transitions and micro-interactions to enhance interactivity and the luxury feel.
+5. Use Tailwind CSS plugins like `tailwindcss-typography` for styled content blocks and `tailwindcss-aspect-ratio` for responsive image and video components.
+6. Optimize for Core Web Vitals (e.g., FCP, LCP, CLS) and ensure all designs and interactions are performance-conscious.
+7. All components must be scalable, reusable, and adhere to the design palette.
+8. Ensure responsive design across all screen sizes (mobile, tablet, and desktop).
+9. Optimize performance with lazy-loading assets, dynamic imports, and minimizing DOM reflows.
+10. Follow WCAG 2.1 accessibility standards, ensuring proper contrast and keyboard navigation.
+11. Add Tailwind utilities for breakpoint-based tweaks (e.g., `sm:`, `md:`, `lg:`, `xl:`), and test layouts on actual devices or emulators to ensure a polished experience.
+12. Use Next.js' `next/image` for optimized image handling, and ensure all images are compressed (e.g., WebP format) and served with lazy-loading.
+13. Resolve all ESLint and Prettier warnings and errors before committing code.
+14. Use strict TypeScript to prevent runtime errors and ensure type safety.
+15. Include unit tests for all custom components and validate changes against multiple devices and browsers.
+16. All design changes should reference the provided design palette and style guidelines. Avoid deviations unless explicitly approved.
+17. Perform visual regression testing to ensure design consistency across updates.
+18. Write clean, modular, and maintainable code. Avoid breaking the existing codebase or introducing bugs.
