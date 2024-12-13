@@ -1,19 +1,12 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { THEME_COLORS } from '../constants';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const THEME_COLORS = {
-  dark: {
-    background: '#10141A',
-    text: '#FFFFFF',
-    accent: '#E4E4E4',
-  },
-  light: {
-    background: '#FFFFFF',
-    text: '#10141A',
-    accent: '#E4E4E4',
-  },
-} as const;
+export type ThemeMode = keyof typeof THEME_COLORS;
+
+export const getThemeColors = (mode: ThemeMode) => THEME_COLORS[mode];
+export const isDarkMode = (mode: ThemeMode): boolean => mode === 'dark';

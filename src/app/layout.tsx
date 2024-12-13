@@ -1,40 +1,42 @@
 import type { Metadata } from 'next';
-import { Syne } from 'next/font/google';
-import { ThemeProvider } from 'next-themes';
-import { Navigation } from '@/components/layout/navigation';
+import React from 'react';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const syne = Syne({
-  subsets: ['latin'],
-  variable: '--font-syne',
+const lufga = localFont({
+  src: [
+    {
+      path: '../../public/fonts/LufgaRegular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/LufgaSemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-lufga',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Euro Motors - European Auto Service & Tuning',
-  description:
-    'Specialized European auto service center offering luxury modifications and performance tuning for premium vehicles.',
+  title: {
+    template: '%s | Euro Motors',
+    default: 'Euro Motors',
+  },
+  description: 'European Auto Service & Performance Tuning',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}): React.ReactElement {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${syne.variable} min-h-screen bg-background font-syne text-foreground antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navigation />
-          <main className="pt-16">{children}</main>
-        </ThemeProvider>
+    <html lang="en" className={lufga.variable}>
+      <body className="min-h-screen bg-background font-lufga antialiased">
+        {children}
       </body>
     </html>
   );

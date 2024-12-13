@@ -109,3 +109,14 @@ html {
     opacity: 1;
   }
 }
+
+/* Add these custom styles */
+.backdrop-blur-lg {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+/* Optional: Add smooth scrolling to the whole page */
+html {
+  scroll-behavior: smooth;
+}

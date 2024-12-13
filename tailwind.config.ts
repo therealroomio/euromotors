@@ -1,4 +1,7 @@
 import type { Config } from 'tailwindcss';
+import tailwindcssAnimate from 'tailwindcss-animate';
+import typography from '@tailwindcss/typography';
+import aspectRatio from '@tailwindcss/aspect-ratio';
 
 export default {
   darkMode: ['class'],
@@ -10,11 +13,8 @@ export default {
   theme: {
   	extend: {
   		fontFamily: {
-  			syne: [
-  				'var(--font-syne)'
-  			],
-  			sans: [
-  				'var(--font-inter)',
+  			lufga: [
+  				'var(--font-lufga)',
   				'system-ui',
   				'sans-serif'
   			]
@@ -68,7 +68,7 @@ export default {
   			}
   		},
   		animation: {
-  			'fade-in': 'fadeIn 0.5s ease-in-out',
+  			'fade-in': 'fadeIn 1.5s ease-out',
   			'slide-in': 'slideIn 0.5s ease-out',
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
   			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
@@ -78,10 +78,12 @@ export default {
   		keyframes: {
   			fadeIn: {
   				'0%': {
-  					opacity: '0'
+  					opacity: '0',
+  					transform: 'translateY(10px)'
   				},
   				'100%': {
-  					opacity: '1'
+  					opacity: '1',
+  					transform: 'translateY(0)'
   				}
   			},
   			slideIn: {
@@ -134,12 +136,24 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+  		backdropBlur: {
+  			lg: '16px',
+  		},
+  		transitionProperty: {
+  			'all': 'all',
+  		},
+  		transitionTimingFunction: {
+  			'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
+  		},
+  		transitionDuration: {
+  			'300': '300ms',
+  		},
   	}
   },
   plugins: [
-    require('tailwindcss-animate'),
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
+    tailwindcssAnimate,
+    typography,
+    aspectRatio,
   ],
 } satisfies Config;

@@ -59,14 +59,4 @@ export const EUROPEAN_BRANDS = [
     logo: '/brands/rolls-royce.svg',
     specialties: ['Ultra-Luxury Care', 'Bespoke Modifications'],
   },
-  {
-    name: 'Volvo',
-    logo: '/brands/volvo.svg',
-    specialties: ['Performance Enhancement', 'Safety Systems'],
-  },
-  {
-    name: 'Volkswagen',
-    logo: '/brands/volkswagen.svg',
-    specialties: ['Performance Tuning', 'ECU Remapping'],
-  },
 ] as const;
