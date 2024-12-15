@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import React from 'react';
 import localFont from 'next/font/local';
 import './globals.css';
-import { Navigation } from '@/components/ui/Navigation';
+import { Navigation } from '@/components/layout/navigation';
 
 const lufga = localFont({
   src: [

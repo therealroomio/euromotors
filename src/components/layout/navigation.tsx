@@ -1,110 +1,80 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { cn } from '@/lib/utils/theme';
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Brands', href: '/brands' },
-  { name: 'Tuning', href: '/tuning' },
-  { name: 'Contact', href: '/contact' },
-];
+import ShimmerButton from '@/components/ui/shimmer-button';
+import { cn } from '@/lib/utils';
 
 export function Navigation() {
-  const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-background/80 backdrop-blur-lg">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
-              <span className="text-2xl font-bold">Euro Motors</span>
+    <nav
+      className={cn(
+        'fixed left-0 right-0 top-0 z-50 px-4 py-4 transition-all duration-300 ease-in-out',
+        scrolled ? 'bg-white/5 shadow-sm backdrop-blur-lg' : 'bg-transparent'
+      )}
+    >
+      <div className="mx-auto flex max-w-full items-center justify-between px-10">
+        <div className="flex items-center space-x-8">
+          <Link href="/" className="font-medium text-[#10141A]">
+            Logo
+          </Link>
+
+          <div className="hidden items-center space-x-8 md:flex">
+            <Link href="/models" className="text-[#10141A] transition-opacity hover:opacity-70">
+              Models
             </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={cn(
-                    'rounded-md px-3 py-2 text-sm font-medium transition-colors',
-                    pathname === item.href
-                      ? 'bg-dark-gray text-white'
-                      : 'text-gray-700 hover:bg-light-gray/50'
-                  )}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="flex md:hidden">
-            <button
-              type="button"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-light-gray/50"
-            >
-              <span className="sr-only">Open main menu</span>
-              {/* Menu icon */}
-              <svg
-                className={cn('h-6 w-6', isMobileMenuOpen ? 'hidden' : 'block')}
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-              {/* Close icon */}
-              <svg
-                className={cn('h-6 w-6', isMobileMenuOpen ? 'block' : 'hidden')}
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+            <Link href="/services" className="text-[#10141A] transition-opacity hover:opacity-70">
+              Services
+            </Link>
+            <Link href="/expirience" className="text-[#10141A] transition-opacity hover:opacity-70">
+              Expirience
+            </Link>
+            <Link href="/shop" className="text-[#10141A] transition-opacity hover:opacity-70">
+              Shop
+            </Link>
           </div>
         </div>
-      </div>
 
-      {/* Mobile menu */}
-      <div className={cn('md:hidden', isMobileMenuOpen ? 'block' : 'hidden')}>
-        <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={cn(
-                'block rounded-md px-3 py-2 text-base font-medium',
-                pathname === item.href
-                  ? 'bg-dark-gray text-white'
-                  : 'text-gray-700 hover:bg-light-gray/50'
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
+        <div className="flex items-center space-x-4">
+          <button className="rounded-full p-2 transition-colors hover:bg-neutral-100">
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+          <ShimmerButton className="bg-[#10141A] text-white">Contact Dealer</ShimmerButton>
+          <button className="rounded-full p-2 transition-colors hover:bg-neutral-100">
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </nav>
