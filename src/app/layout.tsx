@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import React from 'react';
 import localFont from 'next/font/local';
 import './globals.css';
+import { Navigation } from '@/components/ui/Navigation';
 
 const lufga = localFont({
   src: [
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={lufga.variable}>
       <body className="min-h-screen bg-background font-lufga antialiased">
+        <Navigation />
         {children}
       </body>
     </html>

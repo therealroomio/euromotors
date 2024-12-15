@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { EUROPEAN_BRANDS } from '@/lib/constants/brands';
-import { ShimmerButton } from '@/components/ui/shimmer-button';
+import ShimmerButton from '@/components/ui/shimmer-button';
 import GradualSpacing from '@/components/ui/gradual-spacing';
 import BrandMarquee from '@/app/brands/BrandMarquee';
 

@@ -2,14 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ShimmerButton } from './shimmer-button';
+import ShimmerButton from './shimmer-button';
 import { cn } from '@/lib/utils';
-import { usePathname } from 'next/navigation';
-import { NAVIGATION_ITEMS } from '@/lib/constants/navigation';
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,29 +23,29 @@ export function Navigation() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-4 py-4',
         scrolled
-          ? 'bg-background/70 backdrop-blur-lg shadow-sm'
+          ? 'bg-white/70 backdrop-blur-lg shadow-sm'
           : 'bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
-          <Link href="/" className="text-foreground font-medium">
-            Euro Motors
+          <Link href="/" className="text-[#10141A] font-medium">
+            Logo
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            {NAVIGATION_ITEMS.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "text-foreground hover:opacity-70 transition-opacity",
-                  pathname === item.href && "font-medium"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link href="/models" className="text-[#10141A] hover:opacity-70 transition-opacity">
+              Models
+            </Link>
+            <Link href="/services" className="text-[#10141A] hover:opacity-70 transition-opacity">
+              Services
+            </Link>
+            <Link href="/expirience" className="text-[#10141A] hover:opacity-70 transition-opacity">
+              Expirience
+            </Link>
+            <Link href="/shop" className="text-[#10141A] hover:opacity-70 transition-opacity">
+              Shop
+            </Link>
           </div>
         </div>
 
