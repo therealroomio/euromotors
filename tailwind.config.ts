@@ -73,7 +73,13 @@ export default {
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
   			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
   			marquee: 'marquee var(--duration) infinite linear',
-  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+  			'blob1': 'blob1 20s infinite cubic-bezier(0.4, 0, 0.2, 1)',
+  			'blob2': 'blob2 25s infinite cubic-bezier(0.4, 0, 0.2, 1)',
+  			'blob3': 'blob3 30s infinite cubic-bezier(0.4, 0, 0.2, 1)',
+  			'blob4': 'blob4 22s infinite cubic-bezier(0.4, 0, 0.2, 1)',
+  			'blob5': 'blob5 28s infinite cubic-bezier(0.4, 0, 0.2, 1)',
+  			'blob6': 'blob6 35s infinite cubic-bezier(0.4, 0, 0.2, 1)',
   		},
   		keyframes: {
   			fadeIn: {
@@ -130,7 +136,73 @@ export default {
   				to: {
   					transform: 'translateY(calc(-100% - var(--gap)))'
   				}
-  			}
+  			},
+  			blob1: {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)',
+  				},
+  				'33%': {
+  					transform: 'translate(30%, 20%) scale(1.1)',
+  				},
+  				'66%': {
+  					transform: 'translate(-20%, 30%) scale(0.9)',
+  				},
+  			},
+  			blob2: {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)',
+  				},
+  				'33%': {
+  					transform: 'translate(-30%, -20%) scale(1.1)',
+  				},
+  				'66%': {
+  					transform: 'translate(20%, -30%) scale(0.9)',
+  				},
+  			},
+  			blob3: {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)',
+  				},
+  				'33%': {
+  					transform: 'translate(-20%, 20%) scale(1.1)',
+  				},
+  				'66%': {
+  					transform: 'translate(30%, -20%) scale(0.9)',
+  				},
+  			},
+  			blob4: {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1) rotate(0deg)',
+  				},
+  				'33%': {
+  					transform: 'translate(25%, -25%) scale(1.2) rotate(120deg)',
+  				},
+  				'66%': {
+  					transform: 'translate(-15%, 25%) scale(0.85) rotate(240deg)',
+  				},
+  			},
+  			blob5: {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1) rotate(0deg)',
+  				},
+  				'33%': {
+  					transform: 'translate(-30%, -10%) scale(1.15) rotate(-120deg)',
+  				},
+  				'66%': {
+  					transform: 'translate(20%, -25%) scale(0.9) rotate(-240deg)',
+  				},
+  			},
+  			blob6: {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1) rotate(0deg)',
+  				},
+  				'33%': {
+  					transform: 'translate(15%, 25%) scale(1.1) rotate(120deg)',
+  				},
+  				'66%': {
+  					transform: 'translate(-25%, -15%) scale(0.95) rotate(240deg)',
+  				},
+  			},
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
