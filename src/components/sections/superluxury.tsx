@@ -1,13 +1,13 @@
 'use client';
 import { useTheme } from "next-themes";
-import Image from "next/image";
+
 
 import { MagicCard } from "@/components/ui/magic-card";
 
 export function SuperLuxury() {
   const { theme } = useTheme();
   return (
-    
+
     <div
       className={
         "flex h-[600px] w-full flex-row gap-4 lg:h-[600px] lg:flex-row"
