@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ShimmerButton from '@/components/ui/shimmer-button';
 import { cn } from '@/lib/utils';
 
@@ -27,8 +28,16 @@ export function Navigation() {
     >
       <div className="mx-auto flex max-w-full items-center justify-between px-10">
         <div className="flex items-center space-x-8">
-          <Link href="/" className="font-medium text-[#10141A]">
-            Logo
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/euro-motors-logo.svg"
+              alt="Euro Motors Logo"
+              width={105}
+              height={44}
+              quality={100}
+              priority
+
+            />
           </Link>
 
           <div className="hidden items-center space-x-8 md:flex">

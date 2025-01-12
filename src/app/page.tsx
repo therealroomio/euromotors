@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { EUROPEAN_BRANDS } from '@/lib/constants/brands';
 import BrandMarquee from '@/app/brands/BrandMarquee';
 import Hero from '@/components/sections/hero';
-
+import { SuperLuxury } from '@/components/sections/superluxury';
 export const metadata: Metadata = {
   title: 'Home',
   description: 'Welcome to Euro Motors - Your trusted European auto service specialist',
@@ -19,6 +19,8 @@ export default function Home() {
         <BrandMarquee />
       </section>
 
+      {/* Brands We Service */}   
+      <SuperLuxury />
       {/* Add loading optimization for images */}
       <section className="bg-neutral-100 px-4 py-16">
         <div className="mx-auto max-w-7xl">

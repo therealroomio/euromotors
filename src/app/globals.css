@@ -63,24 +63,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: theme('colors.neutral.100');
-}
-
-::-webkit-scrollbar-thumb {
-  background: theme('colors.neutral.200');
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.neutral.300');
-}
-
 /* Animation Classes */
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
