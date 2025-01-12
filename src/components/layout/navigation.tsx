@@ -36,7 +36,6 @@ export function Navigation() {
               height={44}
               quality={100}
               priority
-
             />
           </Link>
 

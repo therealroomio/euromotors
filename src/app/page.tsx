@@ -19,7 +19,7 @@ export default function Home() {
         <BrandMarquee />
       </section>
 
-      {/* Brands We Service */}   
+      {/* Brands We Service */}
       <SuperLuxury />
       {/* Add loading optimization for images */}
       <section className="bg-neutral-100 px-4 py-16">

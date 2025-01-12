@@ -14,4 +14,4 @@ export const NAVIGATION_ITEMS = Object.entries(NAVIGATION_ROUTES).map(([key, hre
 export type NavigationItem = {
   name: string;
   href: (typeof NAVIGATION_ROUTES)[keyof typeof NAVIGATION_ROUTES];
-}; 
+};

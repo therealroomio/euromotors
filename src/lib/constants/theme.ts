@@ -9,4 +9,4 @@ export const THEME_COLORS = {
     text: '#10141A',
     accent: '#E4E4E4',
   },
-} as const; 
+} as const;

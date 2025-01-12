@@ -12,4 +12,4 @@ export const NAVIGATION_ITEMS = [
   { name: 'Contact', href: '/contact' },
 ] as const;
 
-export type NavigationItem = typeof NAVIGATION_ITEMS[number]; 
+export type NavigationItem = (typeof NAVIGATION_ITEMS)[number];

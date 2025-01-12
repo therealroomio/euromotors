@@ -8,11 +8,7 @@ import { EUROPEAN_BRANDS } from '@/lib/constants';
 
 type Brand = (typeof EUROPEAN_BRANDS)[number];
 
-const BrandCard = memo(function BrandCard({
-  logo,
-  name,
-  specialties,
-}: Brand) {
+const BrandCard = memo(function BrandCard({ logo, name, specialties }: Brand) {
   return (
     <figure
       className={cn(
@@ -23,18 +19,18 @@ const BrandCard = memo(function BrandCard({
       )}
     >
       <div className="relative h-12 w-32">
-        <Image 
-          src={logo} 
-          alt={`${name} logo`} 
-          fill 
+        <Image
+          src={logo}
+          alt={`${name} logo`}
+          fill
           className="object-contain"
           sizes="(max-width: 128px) 100vw, 128px"
           loading="eager"
         />
       </div>
       <figcaption className="text-center">
-        <div className="text-lg font-semibold text-black ">{name}</div>
-        <div className="mt-1 text-sm text-foreground ">{specialties[0]}</div>
+        <div className="text-lg font-semibold text-black">{name}</div>
+        <div className="mt-1 text-sm text-foreground">{specialties[0]}</div>
       </figcaption>
     </figure>
   );
@@ -49,14 +45,9 @@ export default function BrandMarquee() {
   const [firstHalf, secondHalf] = splitArrayInHalf<Brand>(EUROPEAN_BRANDS);
 
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg ">
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg">
       {[firstHalf, secondHalf].map((brands, i) => (
-        <Marquee 
-          key={i}
-          pauseOnHover 
-          className="[--duration:40s]"
-          reverse={i === 1}
-        >
+        <Marquee key={i} pauseOnHover className="[--duration:40s]" reverse={i === 1}>
           {brands.map((brand: Brand) => (
             <div key={brand.name} className="">
               <BrandCard {...brand} />
